@@ -10,9 +10,21 @@ public class PhaMessage {
         String[] tipValueArr = {"阿莫西林胶囊"};
         msgInfo = PhaMessage.Msg("S00001", GetModelTip("M00001", tipValueArr), "");
         System.out.println(msgInfo);
-        // 举例2, 门诊药房8号窗口还需要取药
+        // 举例2, 门诊药房8号窗口还需要取药, 依然是通过调用字典模板, 替换关键字信息的方式
         msgInfo = GetModelTip("M00001", new String[]{"门诊药房", "8号窗口"});
         System.out.println(msgInfo);
+    }
+
+    private void msgExample() {
+        String msgInfo = "";
+        String tipInfo = "";
+        // 仅提醒错误码信息
+        msgInfo = PhaMessage.Msg("130001", "", ""); // 发送到发药机失败
+        // 包含堆栈信息
+        msgInfo = PhaMessage.Msg("130001", "", "SUBSCRIPT%IsExistType+3~PHA.SYS.ComDict.Save.1 ~DHCSTSCDI"); // 发送到发药机失败
+        // 包含提醒信息, 获取模板并转换后的提醒消息
+        tipInfo = GetModelTip("901001", new String[]{"门诊药房", "8号窗口"});
+        msgInfo = PhaMessage.Msg("130001", tipInfo, "SUBSCRIPT%IsExistType+3~PHA.SYS.ComDict.Save.1 ~DHCSTSCDI"); // 待取药信息
     }
 
     /**
