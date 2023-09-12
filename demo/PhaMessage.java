@@ -5,7 +5,7 @@ public class PhaMessage {
 //        x 因此中文的方式, 不适合
 //        System.out.println(PhaMessage.Msg("代码重复","",""));
 //        
-//        相比中文, 如下英文的方式较为通用, 也有使用的, 如intersystems 的错误代码
+//        相比中文, 如下英文的方式test较为通用, 也有使用的, 如intersystems 的错误代码
 //        @link http://localhost:57772/csp/docbook/DocBook.UI.Page.cls?KEY=RERR_tsql
 //        System.out.println(PhaMessage.Msg("code is null","",""));
 //
